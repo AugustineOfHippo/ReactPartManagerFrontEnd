@@ -23,11 +23,11 @@ export default function TruckMakeComponent() {
       }
     }
     const showAll = async() => {
-        await axios.get('http://3.89.86.239:4000/parts')
+        await axios.get('http://35.169.107.36:4000/parts')
         .then((res) => {
           dispatch(setParts(res.data))
         })
-        await axios.get('http://3.89.86.239:4000/category')
+        await axios.get('http://35.169.107.36:4000/category')
         .then((res) => {
           dispatch(loadAllParts())
         dispatch(setCategories(res.data))
@@ -35,7 +35,7 @@ export default function TruckMakeComponent() {
     }
     useEffect(() => {
         const fetchMakes = async() => {
-          await axios.get('http://3.89.86.239:4000/makes')
+          await axios.get('http://35.169.107.36:4000/makes')
           .then((res) => {
           dispatch(setMakes(res.data))
           })
