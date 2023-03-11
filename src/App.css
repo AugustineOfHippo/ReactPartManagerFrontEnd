@@ -1,0 +1,591 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* html, body {
+  background-color: #fefefe;
+  color: #2B2D42;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+.mainContainer {
+  display: flex;
+}
+.mainContainer .truckMakeComponentContainer {
+  height: 100vh;
+  margin-top: 1rem;
+}
+.mainContainer .truckMakeComponentContainer ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  min-width: 24rem;
+}
+.mainContainer .truckMakeComponentContainer ul .truckMakeList:hover {
+  color: #EF233C;
+  cursor: pointer;
+}
+.mainContainer .truckMakeComponentContainer ul .truckModelList:hover {
+  color: #EF233C;
+  cursor: pointer;
+}
+.mainContainer .truckMakeComponentContainer ul .menuDropDown {
+  display: none;
+}
+.mainContainer .truckMakeComponentContainer ul li {
+  text-align: center;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.mainContainer .truckMakeComponentContainer .truckModels {
+  display: none;
+}
+.mainContainer .truckMakeComponentContainer .truckModels li {
+  color: #2B2D42;
+  font-style: italic;
+  font-weight: 400;
+}
+.mainContainer .truckMakeComponentContainer .truckCardContainer {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border: 1px solid rgba(43, 45, 66, 0.1803921569);
+  border-radius: 10px;
+  width: 23rem;
+  min-width: 23rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.mainContainer .truckMakeComponentContainer .truckCardContainer:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.mainContainer .truckMakeComponentContainer .truckCardContainer .truckCardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+.mainContainer .truckMakeComponentContainer .truckCardContainer .truckCardContent:hover {
+  cursor: pointer;
+}
+.mainContainer .truckMakeComponentContainer .truckCardContainer .truckCardContent h4 {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  margin: 0;
+}
+.mainContainer .truckMakeComponentContainer .truckCardContainer .truckCardContent h5 {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.mainContainer .truckMakeComponentContainer .truckCardContainer .truckCardContent span {
+  color: #EF233C;
+  font-weight: 700;
+}
+.mainContainer .truckMakeComponentContainer .truckCardContainer .truckCardImage {
+  margin-right: 1rem;
+  position: relative;
+}
+.mainContainer .truckMakeComponentContainer .truckCardContainer .truckCardImage .truckCardDropDown {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  left: 5rem;
+  z-index: 997;
+  background-color: #fefefe;
+  flex-direction: column;
+  border: 1px solid #2B2D42;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.mainContainer .truckMakeComponentContainer .truckCardContainer .truckCardImage .truckCardDropDown button {
+  background-color: transparent;
+  max-width: 12rem;
+  width: 6rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.2rem;
+}
+.mainContainer .truckMakeComponentContainer .truckCardContainer .truckCardImage .truckCardDropDown button:hover {
+  background-color: #EF233C;
+  color: #fefefe;
+}
+.mainContainer .truckMakeComponentContainer .truckCardContainer .truckCardImage img {
+  object-fit: cover;
+  border-radius: 10px;
+  width: 5rem;
+  height: 5rem;
+}
+.mainContainer .truckMakeComponentContainer .truckCardContainer .editTruckContainer {
+  position: absolute;
+  display: none;
+  z-index: 999;
+  padding: 1rem;
+  background-color: #fefefe;
+  color: #2B2D42;
+  flex-direction: column;
+  align-items: center;
+  top: 0;
+  border: 1px solid rgba(43, 45, 66, 0.1803921569);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  overflow: scroll;
+}
+.mainContainer .truckMakeComponentContainer .truckCardContainer .editTruckContainer .editTruckImage {
+  width: 24rem;
+  height: 20rem;
+}
+.mainContainer .truckMakeComponentContainer .truckCardContainer .editTruckContainer .editTruckImage img {
+  width: 95%;
+  height: 95%;
+  background-color: #EDF2F4;
+  border-radius: 5px;
+  object-fit: contain;
+}
+.mainContainer .truckMakeComponentContainer .truckCardContainer .editTruckContainer .truckEditContent {
+  display: flex;
+}
+.mainContainer .truckMakeComponentContainer .truckCardContainer .editTruckContainer .truckEditContent .truckEditItem {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.mainContainer .truckMakeComponentContainer .truckCardContainer .editTruckContainer .truckEditContent input {
+  display: inline;
+  border: none;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 500;
+  outline: unset;
+}
+.mainContainer .truckMakeComponentContainer .truckCardContainer .editTruckContainer .truckEditContent input:focus {
+  color: #EF233C;
+}
+.mainContainer .truckMakeComponentContainer .truckCardContainer .editTruckContainer .truckEditContent span {
+  font-weight: 700;
+  font-style: italic;
+  color: #EF233C;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+.mainContainer .truckMakeComponentContainer .truckCardContainer .editTruckContainer .truckEditButton {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.mainContainer .truckMakeComponentContainer .addPartForm {
+  position: absolute;
+  display: none;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  border: 1px solid rgba(43, 45, 66, 0.1803921569);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  background-color: #fefefe;
+  padding: 1rem;
+}
+.mainContainer .truckMakeComponentContainer .addPartForm .addPartTruck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mainContainer .truckMakeComponentContainer .addPartForm .addPartTruck h4 {
+  margin: 0;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+.mainContainer .truckMakeComponentContainer .addPartForm .addPartTruck img {
+  width: 15rem;
+  height: 15rem;
+  object-fit: cover;
+  border: 1px solid rgba(43, 45, 66, 0.1803921569);
+  border-radius: 5px;
+}
+.mainContainer .truckMakeComponentContainer .addPartForm form {
+  padding: 0.3rem 0.3rem 0 0.3rem;
+}
+.mainContainer .truckMakeComponentContainer .addPartForm .addPartContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.mainContainer .truckMakeComponentContainer .addPartForm .addPartContent input {
+  display: inline;
+  border: none;
+  font-style: italic;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+.mainContainer .truckMakeComponentContainer .addPartForm .addPartContent input:nth-of-type(1) {
+  max-width: 16rem;
+  background-color: transparent;
+}
+.mainContainer .truckMakeComponentContainer .addPartForm .addPartContent span {
+  color: #EF233C;
+  font-weight: 700;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+.mainContainer .truckMakeComponentContainer .addPartForm .addPartButton {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.mainContainer .truckMakeComponentContainer .addPartForm .addPartButton button {
+  margin-bottom: 0.5rem;
+  width: 100%;
+  color: #2B2D42;
+  border: 1px solid #2B2D42;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  background-color: transparent;
+}
+.mainContainer .truckMakeComponentContainer .addPartForm .addPartButton button:hover {
+  background-color: #EF233C;
+  color: #fefefe;
+  border: 1px solid #fefefe;
+}
+.mainContainer .categoryComponentContainer {
+  margin-left: 1rem;
+  margin-top: 1rem;
+  min-width: 12rem;
+}
+.mainContainer .categoryComponentContainer .categoryContent {
+  position: sticky;
+  top: 4rem;
+}
+.mainContainer .categoryComponentContainer .categoryContent h4 {
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  font-size: 1.2rem;
+}
+.mainContainer .categoryComponentContainer ul {
+  list-style-type: none;
+  padding: 0;
+}
+.mainContainer .categoryComponentContainer ul li {
+  font-size: 0.9rem;
+  font-style: italic;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: center;
+}
+.mainContainer .categoryComponentContainer ul li:hover {
+  color: #EF233C;
+  cursor: pointer;
+}
+.mainContainer .partsComponentContainer {
+  margin-left: 2rem;
+  overflow: auto;
+}
+.mainContainer .partsComponentContainer .partsContainer {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1rem;
+}
+.mainContainer .partsComponentContainer .truckPartContainer {
+  border: 1px solid rgba(43, 45, 66, 0.1803921569);
+  margin-bottom: 1rem;
+  display: flex;
+  width: 23rem;
+  border-radius: 10px;
+  padding: 0.5rem;
+  align-items: center;
+  position: relative;
+}
+.mainContainer .partsComponentContainer .truckPartContainer span, .mainContainer .partsComponentContainer .truckPartContainer h5 {
+  font-style: italic;
+}
+.mainContainer .partsComponentContainer .truckPartContainer:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.mainContainer .partsComponentContainer .truckPartContainer .truckPartImage {
+  position: relative;
+  margin-right: 1rem;
+}
+.mainContainer .partsComponentContainer .truckPartContainer .truckPartImage .truckPartDropDown {
+  background-color: #fefefe;
+  border: 1px solid #2B2D42;
+  min-width: 5rem;
+  position: absolute;
+  top: 1rem;
+  left: 4rem;
+  z-index: 997;
+  display: none;
+  flex-direction: column;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.mainContainer .partsComponentContainer .truckPartContainer .truckPartImage .truckPartDropDown button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  padding: 0.2rem;
+  width: 100%;
+  background-color: transparent;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.mainContainer .partsComponentContainer .truckPartContainer .truckPartImage .truckPartDropDown button:hover {
+  background-color: #EF233C;
+  color: #fefefe;
+}
+.mainContainer .partsComponentContainer .truckPartContainer .truckPartImage img {
+  border: 1px solid rgba(43, 45, 66, 0.1803921569);
+  border-radius: 5px;
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+}
+.mainContainer .partsComponentContainer .truckPartContainer .truckPartImage img:hover {
+  cursor: pointer;
+}
+.mainContainer .partsComponentContainer .truckPartContainer .truckPartContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.mainContainer .partsComponentContainer .truckPartContainer .truckPartContent h5 {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+}
+.mainContainer .partsComponentContainer .truckPartContainer .truckPartContent span {
+  color: #EF233C;
+}
+.mainContainer .partsComponentContainer .truckPartContainer .truckPartContent .truckPartContentDescription {
+  white-space: unset;
+  overflow: unset;
+  text-overflow: unset;
+  word-break: normal;
+  max-width: 15rem;
+}
+.mainContainer .partsComponentContainer .truckPartContainer .truckPartContent .truckPartContentName {
+  white-space: unset;
+  overflow: unset;
+  text-overflow: unset;
+  word-break: normal;
+  max-width: 15rem;
+}
+.mainContainer .partsComponentContainer .truckPartContainer .truckPartContent .truckInfoContent {
+  display: flex;
+  align-items: center;
+}
+.mainContainer .partsComponentContainer .truckPartContainer .truckPartContent .truckInfoContent h6 {
+  width: 12rem;
+  font-size: 0.9rem;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-style: italic;
+}
+.mainContainer .partsComponentContainer .truckPartContainer .truckPartContent .truckInfoContent img {
+  border: 1px solid rgba(43, 45, 66, 0.1803921569);
+  border-radius: 5px;
+  width: 3rem;
+  height: 3rem;
+  object-fit: cover;
+}
+.mainContainer .partsComponentContainer .truckPartContainer .truckPartContent i {
+  font-size: 0.9rem;
+}
+.mainContainer .partsComponentContainer .truckPartContainer .truckPartContent i:hover {
+  color: #EF233C;
+  cursor: pointer;
+}
+.mainContainer .partsComponentContainer .truckPartContainer .truckPartContent i:nth-of-type(1) {
+  margin-right: 0.2rem;
+}
+.mainContainer .partsComponentContainer .editPartContainer {
+  position: absolute;
+  display: none;
+  z-index: 999;
+  padding: 1rem;
+  background-color: #fefefe;
+  color: #2B2D42;
+  flex-direction: column;
+  align-items: center;
+  top: 4rem;
+  border: 1px solid rgba(43, 45, 66, 0.1803921569);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+.mainContainer .partsComponentContainer .editPartContainer .editPartContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.mainContainer .partsComponentContainer .editPartContainer .editPartContent input {
+  display: inline;
+  border: none;
+  font-style: italic;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+.mainContainer .partsComponentContainer .editPartContainer .editPartContent span {
+  font-style: italic;
+  color: #EF233C;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+.mainContainer .partsComponentContainer .editPartContainer .editPartContent h5 {
+  margin: 0;
+}
+.mainContainer .partsComponentContainer .editPartContainer .editPartImage {
+  margin-bottom: 1rem;
+}
+.mainContainer .partsComponentContainer .editPartContainer .editPartImage img {
+  width: 15rem;
+  height: 15rem;
+  border: 1px solid rgba(43, 45, 66, 0.1803921569);
+  border-radius: 5px;
+  object-fit: cover;
+}
+.mainContainer .partsComponentContainer .editPartContainer .editPartButton {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.mainContainer .partsComponentContainer .editPartContainer .editPartButton button {
+  margin-bottom: 0.5rem;
+  width: 100%;
+  color: #2B2D42;
+  border: 1px solid #2B2D42;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  background-color: transparent;
+}
+.mainContainer .partsComponentContainer .editPartContainer .editPartButton button:hover {
+  background-color: #EF233C;
+  color: #fefefe;
+  border: 1px solid #fefefe;
+}
+.mainContainer .partsComponentContainer .editPartContainer .editPartTruck {
+  display: flex;
+  align-items: center;
+}
+.mainContainer .partsComponentContainer .editPartContainer .editPartTruck h6 {
+  margin: 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+.mainContainer .partsComponentContainer .editPartContainer .editPartTruck img {
+  border: 1px solid rgba(43, 45, 66, 0.1803921569);
+  border-radius: 10px;
+  width: 3rem;
+  height: 3rem;
+  object-fit: cover;
+  margin-right: 0.2rem;
+}
+
+.navigationBarContainer {
+  position: sticky;
+  top: 0;
+  padding: 0.5rem;
+  width: 100%;
+  background-color: #fefefe;
+  z-index: 999;
+  border-bottom: 1px solid rgba(43, 45, 66, 0.1803921569);
+}
+.navigationBarContainer ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  justify-content: space-around;
+}
+.navigationBarContainer ul li i {
+  color: #2B2D42;
+  font-size: 2rem;
+}
+.navigationBarContainer ul li i:hover {
+  color: #EF233C;
+}
+.navigationBarContainer ul li:hover {
+  cursor: pointer;
+}
+
+.newTruckContainer {
+  position: absolute;
+  border: 1px solid rgba(43, 45, 66, 0.1803921569);
+  background-color: #fefefe;
+  padding: 1rem;
+  top: 1rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.newTruckContainer h4 {
+  text-align: center;
+}
+.newTruckContainer .inputContainer {
+  padding: 0.2rem;
+}
+.newTruckContainer .axledivs {
+  display: flex;
+  flex-direction: column;
+}
+.newTruckContainer label {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #EF233C;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+.newTruckContainer input {
+  border: none;
+  margin-left: 0.5rem;
+  outline: unset;
+  font-weight: 700;
+  font-style: italic;
+  color: #2B2D42;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+.newTruckContainer input:focus {
+  border-bottom: 1px solid #EF233C;
+}
+.newTruckContainer button {
+  text-transform: uppercase;
+}
+
+.button1 {
+  margin-bottom: 1rem;
+  width: 100%;
+  color: #2B2D42;
+  border: 1px solid #2B2D42;
+  border-radius: 5px;
+  font-weight: 600;
+  background-color: transparent;
+}
+.button1:hover {
+  background-color: #EF233C;
+  color: #fefefe;
+  border: 1px solid #fefefe;
+}
+
+.background1 {
+  background-color: rgb(49, 7, 7);
+  color: #fefefe;
+}
+
+# sourceMappingURL=App.css.map */
