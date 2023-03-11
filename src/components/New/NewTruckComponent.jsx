@@ -56,7 +56,6 @@ export default function NewTruckComponent() {
 
       await axios.post('http://35.169.107.36:4000/trucks',newTruck)
       .then(res => {
-        console.log(res.data);
           dispatch(addTrucks(res.data));
       })
       .catch(err => alert('Got an error: ' + err))

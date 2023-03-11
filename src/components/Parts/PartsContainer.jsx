@@ -8,7 +8,6 @@ export default function PartsContainer() {
   const parts = useSelector(state => state.parts.parts)
 
 
-  console.log('parts component reload')
   return (
     <div className=" p-2 overflow-auto w-full ">
             {parts.length > 0 ?

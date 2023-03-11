@@ -31,7 +31,6 @@ export default function EditPartComponent() {
         formData.append("upload_preset","quy7tyzr");
         axios.post("https://api.cloudinary.com/v1_1/dqav5svfm/image/upload",formData)
         .then((res) => {
-            console.log(res);
                 setMyPart(prevState => ({
                     ...prevState,
                     image:res.data.url
@@ -52,7 +51,6 @@ export default function EditPartComponent() {
                     dispatch(setCategories(res.data))
                     })
               } else {
-                console.log("We dont have a truckid")
                 await axios.get('http://35.169.107.36:4000/category')
                     .then((res) => {
                     dispatch(setCategories(res.data))
@@ -74,7 +72,6 @@ export default function EditPartComponent() {
                 dispatch(setCategories(res.data))
                 })
           } else {
-            console.log("We dont have a truckid")
             await axios.get('http://35.169.107.36:4000/category')
                 .then((res) => {
                 dispatch(setCategories(res.data))

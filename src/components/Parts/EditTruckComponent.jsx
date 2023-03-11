@@ -27,7 +27,6 @@ export default function EditTruckComponent() {
         e.preventDefault();
         await axios.put(`http://35.169.107.36:4000/trucks/${myTruck._id}`,myTruck)
         .then(res  => {
-            console.log(res.data);
             dispatch(editTrucks(myTruck));
             dispatch(loadEditTruck());
         });

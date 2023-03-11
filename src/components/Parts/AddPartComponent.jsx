@@ -36,7 +36,6 @@ export default function AddPartComponent() {
         formData.append("upload_preset","quy7tyzr");
         axios.post("https://api.cloudinary.com/v1_1/dqav5svfm/image/upload",formData)
         .then((res) => {
-            console.log(res);
                 setNewPart(prevState => ({
                     ...prevState,
                     image:res.data.url
