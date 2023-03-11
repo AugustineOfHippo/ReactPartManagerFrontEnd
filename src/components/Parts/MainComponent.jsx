@@ -57,7 +57,7 @@ export default function MainComponent() {
 
 
   // const verifyUser = useCallback(() => {
-  //   fetch('http://localhost:3001/users/refreshToken', {
+  //   fetch('http://3.89.86.239:4000/users/refreshToken', {
   //     method: "POST",
   //     credentials: "include",
   //     headers: { "Content-Type": "application/json" },
@@ -84,25 +84,25 @@ export default function MainComponent() {
 
   useEffect(() => {
     const fetchAllTrucks = async() => {
-       await axios.get('http://localhost:3001/parts')
+       await axios.get('http://3.89.86.239:4000/parts')
          .then((res) => {
            dispatch(setParts(res.data))
          })
        .catch(error => console.log('Got an error getting parts: ' + error))
 
-         await axios.get('http://localhost:3001/category')
+         await axios.get('http://3.89.86.239:4000/category')
          .then((res) => {
          dispatch(setCategories(res.data))
          })
        .catch(error => console.log('Got an error getting categories: ' + error))
 
-          await axios.get('http://localhost:3001/makes')
+          await axios.get('http://3.89.86.239:4000/makes')
             .then((res) => {
                 dispatch(setMakes(res.data))
             })
        .catch(error => console.log('Got an error getting makes: ' + error))
 
-        await axios.get('http://localhost:3001/trucks')
+        await axios.get('http://3.89.86.239:4000/trucks')
         .then((res) => {
           console.log('Main Component Sent Request')
             dispatch(setTrucks(res.data))

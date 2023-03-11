@@ -14,13 +14,13 @@ export default function TruckPartComponent({part}) {
     const [quantity,setQuantity] = useState(part.quantity);
 
     const handleAddStock = async() => {
-        await axios.put('http://localhost:3001/parts/edit/' + part._id + '/addQuantity')
+        await axios.put('http://3.89.86.239:4000/parts/edit/' + part._id + '/addQuantity')
         .then((res) => {
             setQuantity(prevState => prevState + 1)
         })
     }
     const handleRemoveStock = async() => {
-        await axios.put('http://localhost:3001/parts/edit/' + part._id + '/removeQuantity')
+        await axios.put('http://3.89.86.239:4000/parts/edit/' + part._id + '/removeQuantity')
         .then((res) => {
             setQuantity(prevState => prevState - 1)
         })

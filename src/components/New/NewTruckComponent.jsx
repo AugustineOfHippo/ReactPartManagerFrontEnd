@@ -57,13 +57,13 @@ export default function NewTruckComponent() {
   const onSubmit = async(e) => {
       e.preventDefault();
 
-      await axios.post('http://localhost:3001/trucks',newTruck)
+      await axios.post('http://3.89.86.239:4000/trucks',newTruck)
       .then(res => {
         console.log(res.data);
           dispatch(addTrucks(res.data));
       })
       .catch(err => alert('Got an error: ' + err))
-      await axios.get('http://localhost:3001/makes')
+      await axios.get('http://3.89.86.239:4000/makes')
             .then((res) => {
                 dispatch(setMakes(res.data))
             })

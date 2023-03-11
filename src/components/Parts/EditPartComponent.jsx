@@ -43,7 +43,7 @@ export default function EditPartComponent() {
 
     const handleDelete = async(e) => {
       e.preventDefault();
-        await axios.delete('http://localhost:3001/parts/delete/' + myPart._id)
+        await axios.delete('http://3.89.86.239:4000/parts/delete/' + myPart._id)
             .then((res) => {
               dispatch(loadEditPart({truckid:myTruck._id, partid:myPart._id}));
               dispatch(removeParts(myPart))
@@ -53,18 +53,18 @@ export default function EditPartComponent() {
 
       const onSubmit = async(e) => {
         e.preventDefault();
-        await axios.put('http://localhost:3001/parts/edit/' + myPart._id,myPart)
+        await axios.put('http://3.89.86.239:4000/parts/edit/' + myPart._id,myPart)
         .then(async(res) => {
 
           dispatch(editParts(myPart));
           if(truckid !== ''){
-            await axios.get('http://localhost:3001/category/' +truckid)
+            await axios.get('http://3.89.86.239:4000/category/' +truckid)
                 .then(res => {
                 dispatch(setCategories(res.data))
                 })
           } else {
             console.log("We dont have a truckid")
-            await axios.get('http://localhost:3001/category')
+            await axios.get('http://3.89.86.239:4000/category')
                 .then((res) => {
                 dispatch(setCategories(res.data))
                 })
@@ -74,12 +74,12 @@ export default function EditPartComponent() {
         .catch(err => console.log(err))
 
         // if(truckid === '') {
-        //   await axios.get('http://localhost:3001/category')
+        //   await axios.get('http://3.89.86.239:4000/category')
         //         .then((res) => {
         //         dispatch(setCategories(res.data))
         //         })
         // } else {
-        //   await axios.get('http://localhost:3001/category/' +truckid)
+        //   await axios.get('http://3.89.86.239:4000/category/' +truckid)
         //         .then(res => {
         //         dispatch(setCategories(res.data))
         //         })
@@ -89,11 +89,11 @@ export default function EditPartComponent() {
     }
     const getPartById = async() => {
       if(partid !== '') {
-        await axios.get(`http://localhost:3001/parts/part/onePart/${partid}`)
+        await axios.get(`http://3.89.86.239:4000/parts/part/onePart/${partid}`)
         .then((res) => {
           setMyPart(res.data);
         })
-        await axios.get(`http://localhost:3001/trucks/${truckid}`)
+        await axios.get(`http://3.89.86.239:4000/trucks/${truckid}`)
         .then((res) => {
                 setMyTruck(res.data);
         })

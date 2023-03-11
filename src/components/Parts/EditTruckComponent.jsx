@@ -28,7 +28,7 @@ export default function EditTruckComponent() {
 
     const onSubmit = async(e) => {
         e.preventDefault();
-        await axios.put(`http://localhost:3001/trucks/${myTruck._id}`,myTruck)
+        await axios.put(`http://3.89.86.239:4000/trucks/${myTruck._id}`,myTruck)
         .then(res  => {
             console.log(res.data);
             dispatch(editTrucks(myTruck));
@@ -37,7 +37,7 @@ export default function EditTruckComponent() {
     }
 
     const fetchParts = async() => {
-        await axios.get('http://localhost:3001/parts')
+        await axios.get('http://3.89.86.239:4000/parts')
        .then((res) => {
            dispatch(setParts(res.data))
        })
@@ -46,7 +46,7 @@ export default function EditTruckComponent() {
        })
    }
    const deleteTruck = async() => {
-        await axios.delete(`http://localhost:3001/trucks/${myTruck._id}`)
+        await axios.delete(`http://3.89.86.239:4000/trucks/${myTruck._id}`)
        .then()
    }
 
@@ -69,7 +69,7 @@ export default function EditTruckComponent() {
 
     useEffect(() => {
         const fetchTruck = async() => {
-            await axios.get(`http://localhost:3001/trucks/${truckid}`)
+            await axios.get(`http://3.89.86.239:4000/trucks/${truckid}`)
                 .then((res) => {
                     setMyTruck(res.data)
             })

@@ -11,14 +11,14 @@ export default function PartsContainer() {
   // useEffect(() => {
   //       const fetchParts = async() => {
   //         if(selectedtruck === '') {
-  //           await axios.get('http://localhost:3001/parts')
+  //           await axios.get('http://3.89.86.239:4000/parts')
   //              .then((res) => {
   //                dispatch(setParts(res.data))
   //              })
   //            .catch(error => console.log('Got an error getting parts: ' + error))
   //         } else {
   //           try {
-  //             await axios.get('http://localhost:3001/parts/part/' + selectedtruck)
+  //             await axios.get('http://3.89.86.239:4000/parts/part/' + selectedtruck)
   //             .then((res) => {
   //                 dispatch(setParts(res.data))
   //             })
