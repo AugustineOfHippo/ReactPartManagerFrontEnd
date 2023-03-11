@@ -1,7 +1,5 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import { useDispatch } from 'react-redux';
-import { deletePart } from '../../actions';
-import { v4 } from 'uuid';
 import { loadEditPart } from '../../store/menuSlice';
 
 import axios from 'axios';
@@ -10,7 +8,6 @@ import axios from 'axios';
 export default function TruckPartComponent({part}) {
 
     const dispatch = useDispatch();
-    // const [myPart,setMyPart] = useState(part);
     const [quantity,setQuantity] = useState(part.quantity);
 
     const handleAddStock = async() => {
@@ -29,11 +26,10 @@ export default function TruckPartComponent({part}) {
 
     return (
         <>
-        {/* <EditPartComponent myPart={myPart} setMyPart={setMyPart} /> */}
         <div className=" relative flex flex-col  w-1/6 text-black  border shadow-md justify-center rounded-md text-xs items-center " >
                     <i
                     onClick={() => dispatch(loadEditPart({truckid:part.truck, partid:part._id}))}
-                    class="z-50 cursor-pointer absolute top-1 right-1 bi bi-pencil-square text-lg text-white bg-slate-800 rounded-md px-1 hover:bg-teal-400">
+                    class="z-40 cursor-pointer absolute top-1 right-1 bi bi-pencil-square text-lg text-white bg-slate-800 rounded-md px-1 hover:bg-teal-400">
                     </i>
             <>
                 {/* IMAGE */}

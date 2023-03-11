@@ -9,7 +9,6 @@ export default function EditTruckComponent() {
 
 
     const [myTruck,setMyTruck] = useState('');
-    // const [newTruck,setNewTruck] = useState(myTruck);
     const dispatch = useDispatch();
     const truckid = useSelector(state => state.menu.truckid)
     const showpage = useSelector(state => state.menu.edittruck);
@@ -19,10 +18,8 @@ export default function EditTruckComponent() {
 
     const handleChange = (e) => {
         setMyTruck(prevState => ({
-            // truck:{
                 ...prevState,
                 [e.target.name]:e.target.value
-            // }
         }))
     };
 
@@ -79,13 +76,13 @@ export default function EditTruckComponent() {
         }
     },[showpage])
 
-  return (
+return (
     <>
     {   
         showpage? 
             <div className="fixed shadow-md top-1 border rounded-md flex flex-col p-2 w-2/12 items-center bg-white ml-4" id={`editTruck${myTruck._id}`} >
                 <div className="w-10/12 rounded-md relative">
-                    <img src={myTruck.image}/>
+                    <img src={myTruck.image} alt="truckimage"/>
                     <i
                     onClick={(e) => handleDelete(e)} 
                     className="hover:bg-red-800 cursor-pointer bi bi-trash3 absolute bg-red-600 text-white text-2xl top-1 right-1 px-1 rounded-md"></i>
@@ -149,8 +146,8 @@ export default function EditTruckComponent() {
                             <input
                             placeholder={myTruck.reardiffmodel} 
                             className='p-2 border rounded-md '
-                             onChange={handleChange} name="reardiffmodel" 
-                             />
+                            onChange={handleChange} name="reardiffmodel" 
+                            />
                         </div>
                         <div className="flex flex-col">
                         <label className='font-semibold'>Lbs:</label>
@@ -190,13 +187,13 @@ export default function EditTruckComponent() {
                     onClick={(e) => onSubmit(e)}>Edit</button>
                     {/* <button className="bg-red-400 text-white " onClick={(e) => handleDelete(e)}>DELETE</button> */}
                     <button
-                     className="hover:bg-red-500 bg-red-400 text-white rounded-md p-1"
-                     onClick={() => dispatch(loadEditTruck())}>Cancel</button>
+                    className="hover:bg-red-500 bg-red-400 text-white rounded-md p-1"
+                    onClick={() => dispatch(loadEditTruck())}>Cancel</button>
                 </div>
             </div>     
         :
-         ''
+''
     }
     </>
-  )
+)
 }

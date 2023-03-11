@@ -1,10 +1,10 @@
-import React, { useEffect,useState } from 'react'
+import React, { useEffect } from 'react'
 import TruckModelComponent from './TruckModelComponent'
 import { v4 } from 'uuid';
 
 import { useSelector,useDispatch } from 'react-redux'
-import { setTrucks,setMakes, setCategories } from '../../store/truckSlice';
-import { loadCategories, loadAllCategories,loadNewTruck, loadAllParts } from '../../store/menuSlice';
+import { setMakes, setCategories } from '../../store/truckSlice';
+import { loadNewTruck, loadAllParts } from '../../store/menuSlice';
 import { setParts } from '../../store/partSlice';
 import axios from 'axios';
 
@@ -13,7 +13,6 @@ export default function TruckMakeComponent() {
     const dispatch = useDispatch();
 
     const makes = useSelector(state => state.trucks.makes)
-    const [showModels,setShowModels] = useState(false);
 
     const openMenu = async(arg) => {
       let found = document.getElementById(arg+'Models');
@@ -21,20 +20,18 @@ export default function TruckMakeComponent() {
         found.style.display = 'none';
       } else {
         found.style.display = 'block';
-        // found.style.backgroundColor = "#EF233C"
-        // found.style.color = "#fefefe"
       }
     }
     const showAll = async() => {
         await axios.get('http://3.89.86.239:4000/parts')
-         .then((res) => {
-           dispatch(setParts(res.data))
-         })
-         await axios.get('http://3.89.86.239:4000/category')
-         .then((res) => {
+        .then((res) => {
+          dispatch(setParts(res.data))
+        })
+        await axios.get('http://3.89.86.239:4000/category')
+        .then((res) => {
           dispatch(loadAllParts())
-         dispatch(setCategories(res.data))
-         })
+        dispatch(setCategories(res.data))
+        })
     }
     useEffect(() => {
         const fetchMakes = async() => {
@@ -73,7 +70,7 @@ export default function TruckMakeComponent() {
                   </div> 
                   {make.models.map(model => (
                     <>
-                      <TruckModelComponent  showModels={showModels} model={model} key={`${make}Model`} make={make} />
+                      <TruckModelComponent  model={model} key={`${make}Model`} make={make} />
                     </>
                   ))}
                   </>

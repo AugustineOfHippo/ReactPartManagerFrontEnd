@@ -1,25 +1,15 @@
 import React from 'react'
 import TruckCardComponent1 from './TruckCardComponent1'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { v4 } from 'uuid';
-import { useEffect,useState } from 'react';
-import axios from 'axios';
-// import { setTrucks } from '../../store/truckSlice';
+import {useState } from 'react';
 
 
 export default function TruckModelComponent({model,make}) {
-    const dispatch = useDispatch();
     const trucks = useSelector(state => state.trucks.trucks);
     const [showTrucks,setShowTrucks] = useState(false);
 
-    // const openModelMenu = (arg) => {
-    //     const doc1 = document.getElementById(arg+'Model');
-    //     if(doc1.style.display === 'block'){
-    //         doc1.style.display = 'none'
-    //     } else {
-    //         doc1.style.display = 'block'
-    //     }
-    // }
+
 
 return (
     <ul id={`${make.make}Models`}

@@ -1,7 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import axios from 'axios';
 import { useDispatch,useSelector } from 'react-redux';
-// import { setCategories } from '../../actions';
 import { setCategories } from '../../store/truckSlice';
 import { editParts,removeParts } from '../../store/partSlice';
 import { loadEditPart } from '../../store/menuSlice';
@@ -14,7 +13,6 @@ export default function EditPartComponent() {
     const partid = useSelector(state => state.menu.partid)
 
 
-      // const [newPart,setNewPart] = useState('');
       const [myTruck,setMyTruck] = useState('');
       const [myPart,setMyPart] = useState('');
 
@@ -44,9 +42,22 @@ export default function EditPartComponent() {
     const handleDelete = async(e) => {
       e.preventDefault();
         await axios.delete('http://3.89.86.239:4000/parts/delete/' + myPart._id)
-            .then((res) => {
+            .then(async(res) => {
               dispatch(loadEditPart({truckid:myTruck._id, partid:myPart._id}));
               dispatch(removeParts(myPart))
+
+              if(truckid !== ''){
+                await axios.get('http://3.89.86.239:4000/category/' +truckid)
+                    .then(res => {
+                    dispatch(setCategories(res.data))
+                    })
+              } else {
+                console.log("We dont have a truckid")
+                await axios.get('http://3.89.86.239:4000/category')
+                    .then((res) => {
+                    dispatch(setCategories(res.data))
+                    })
+              }
             })
     }
 
@@ -73,17 +84,6 @@ export default function EditPartComponent() {
         })
         .catch(err => console.log(err))
 
-        // if(truckid === '') {
-        //   await axios.get('http://3.89.86.239:4000/category')
-        //         .then((res) => {
-        //         dispatch(setCategories(res.data))
-        //         })
-        // } else {
-        //   await axios.get('http://3.89.86.239:4000/category/' +truckid)
-        //         .then(res => {
-        //         dispatch(setCategories(res.data))
-        //         })
-        // }
 
 
     }
@@ -117,6 +117,7 @@ export default function EditPartComponent() {
           </i>
           <div className=" flex justify-center bg-white">
               <img 
+              alt="partimage"
               className='  h-48 object-contain '
               src={myPart.image}/>
           </div>

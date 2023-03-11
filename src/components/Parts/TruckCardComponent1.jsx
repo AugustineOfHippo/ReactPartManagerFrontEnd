@@ -1,12 +1,9 @@
-import React, { useEffect,useState } from 'react'
+import React from 'react'
 import { v4 } from 'uuid';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-// import { setParts,setCategories,setSelectedTruck,deleteTruck,setMakes } from '../../actions';
 import { setCategories } from '../../store/truckSlice';
 import { setParts } from '../../store/partSlice';
-import EditTruckComponent from './EditTruckComponent';
-import AddPartComponent from './AddPartComponent';
 import { loadCategories } from '../../store/menuSlice';
 
 
@@ -16,12 +13,8 @@ import { loadCategories } from '../../store/menuSlice';
 export default function TruckCardComponent1({truck}) {
 
   const dispatch = useDispatch();
-  // const [myTruck,setMyTruck] = useState(truck);
-  // const [categories,setMyCategories] = useState(truck.partcategories)
 
   const loadParts = async() => {
-    // dispatch(setSelectedTruck(truck));
-    // setShowParts(prevState => !prevState)
     dispatch(loadCategories(truck._id))
       await axios.get('http://3.89.86.239:4000/parts/part/' + truck._id)
       .then((res) => {
@@ -36,51 +29,7 @@ export default function TruckCardComponent1({truck}) {
   }
 
 
-
-  // const dropDownFunction = () => {
-  //   const doc1 = document.getElementById('truckCardDropDown'+truck._id);
-  //       if(doc1.style.display === 'flex'){
-  //           doc1.style.display = 'none'
-  //       } else {
-  //           doc1.style.display = 'flex'
-  //       }
-  // }
-  // const editTruckDropDownFunction = () => {
-  //   const doc1 = document.getElementById('editTruck'+truck._id);
-  //       if(doc1.style.display === 'flex'){
-  //           doc1.style.display = 'none'
-  //       } else {
-  //           doc1.style.display = 'flex'
-  //       }
-  // }
-  // const addPartFunction = () => {
-  //   const doc1 = document.getElementById('addPartForm'+truck._id);
-  //       if(doc1.style.display === 'block'){
-  //           doc1.style.display = 'none'
-  //       } else {
-  //           doc1.style.display = 'block'
-  //       }
-  // }
-  // const handleDelete = async(e) => {
-  //   e.preventDefault();
-  //   await axios.delete('http://3.89.86.239:4000/trucks/'+ truck._id)
-  //       .then((res) => {
-  //       })
-  //       await axios.get('http://3.89.86.239:4000/makes')
-  //       .then((res) => {
-  //         // dispatch(deleteTruck(truck._id))
-  //         // dispatch(setMakes(res.data))
-  //           })
-  //      .catch(error => console.log('Got an error getting makes: ' + error))
-  // }
-
-
-
-  // console.log(truck);
-
-
   return (
-    // 
 
       <li
       onClick={() => loadParts()}
@@ -90,6 +39,7 @@ export default function TruckCardComponent1({truck}) {
 
               <div className='relative'>
                   <img
+                  alt="truckcardimage"
                   className='rounded-sm object-cover w-12 h-12'
                   src={truck.image} />
               </div>
@@ -97,14 +47,8 @@ export default function TruckCardComponent1({truck}) {
               <div className="font-medium capitalize text-xs "  >
                       <h4 className='text-center my-1 font-semibold uppercase p-1'>{truck.make} {truck.model} {truck.year}</h4>
                       <h5 className='text-left p-1 rounded-sm my-1'>{truck.vin}</h5>
-                      {/* <h5 className='text-left p-1 bg-slate-700 rounded-sm my-1'>Engine:{truck.engine}</h5> */}
-                      {/* <h5 className='text-left p-1 bg-slate-700 rounded-sm my-1'>Gearbox:{truck.transmission}</h5> */}
-                      {/* <h5 className='text-left p-1 bg-slate-700 rounded-sm my-1'>Diff:{truck.reardiffmodel}</h5>   */}
-                      {/* <h5 className='text-left p-1 bg-slate-700 rounded-sm my-1'>Ratio:{truck.reardiffratio}</h5> */}
               </div>
-
           </div>
       </li>
-
   )
 }

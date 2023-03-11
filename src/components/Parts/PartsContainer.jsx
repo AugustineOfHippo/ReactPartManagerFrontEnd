@@ -1,36 +1,13 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import TruckPartComponent from './TruckPartComponent';
 
 
 export default function PartsContainer() {
 
-  const dispatch = useDispatch();
   const parts = useSelector(state => state.parts.parts)
 
-  // useEffect(() => {
-  //       const fetchParts = async() => {
-  //         if(selectedtruck === '') {
-  //           await axios.get('http://3.89.86.239:4000/parts')
-  //              .then((res) => {
-  //                dispatch(setParts(res.data))
-  //              })
-  //            .catch(error => console.log('Got an error getting parts: ' + error))
-  //         } else {
-  //           try {
-  //             await axios.get('http://3.89.86.239:4000/parts/part/' + selectedtruck)
-  //             .then((res) => {
-  //                 dispatch(setParts(res.data))
-  //             })
-  //           } catch (error) {
-  //             console.log('Error when getting parts for this truck ')
-  //           }
-  //         }
-  //       }
 
-  //       fetchParts();
-
-  // },[])
   console.log('parts component reload')
   return (
     <div className=" p-2 overflow-auto w-full ">

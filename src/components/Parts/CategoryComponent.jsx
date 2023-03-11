@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios'
-import { v4 } from 'uuid';
 import { useSelector,useDispatch } from 'react-redux';
 import { setCategories } from '../../store/truckSlice';
 import { setParts } from '../../store/partSlice';
@@ -8,8 +7,6 @@ import { useEffect } from 'react';
 import { FaArrowAltCircleLeft } from 'react-icons/fa'
 import { loadTrucks } from '../../store/menuSlice';
 import { loadEditTruck,loadNewPart } from '../../store/menuSlice';
-import { useState } from 'react';
-// import { setParts } from '../../actions';
 
 
 export default function CategoryComponent() {

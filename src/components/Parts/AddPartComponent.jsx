@@ -27,14 +27,6 @@ export default function AddPartComponent() {
 
     const [success,setSuccess] = useState(false);
 
-    // const addPartFunction = () => {
-    //     const doc1 = document.getElementById('addPartForm'+truckid);
-    //         if(doc1.style.display === 'block'){
-    //             doc1.style.display = 'none'
-    //         } else {
-    //             doc1.style.display = 'block'
-    //         }
-    //   }
 
 
     const handleImage = async(e) => {
@@ -97,6 +89,7 @@ return (
 
             <div className="w-12/12 p-2">
                 <img 
+                alt="imagepart"
                 className='rounded-md'
                 src={truck.image}/>
             </div>

@@ -1,10 +1,7 @@
 
 import React,{useState} from 'react'
 import axios from 'axios'
-import {Link } from 'react-router-dom';
 import { useSelector,useDispatch } from 'react-redux';
-import { setSelectedTruck } from '../../actions';
-import { useEffect } from 'react';
 import { addTrucks,setMakes } from '../../store/truckSlice';
 import { loadNewTruck } from '../../store/menuSlice';
 
