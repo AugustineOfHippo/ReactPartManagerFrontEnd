@@ -45,7 +45,7 @@ export default function MainComponent() {
 
         await axios.get('http://35.169.107.36:4000/trucks')
         .then((res) => {
-          console.log('Main Component Sent Request')
+          ('Main Component Sent Request')
             dispatch(setTrucks(res.data))
             })
         };
