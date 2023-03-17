@@ -19,21 +19,21 @@ export default function CategoryComponent() {
     useEffect(() => {
         const fetchCategories = async() => {
             if(truckid === ''){
-                await axios.get('http://35.169.107.36:4000/category')
+                await axios.get('http://18.141.159.166:4000/category')
                 .then((res) => {
                 dispatch(setCategories(res.data))
                 })
-                await axios.get('http://35.169.107.36:4000/parts')
+                await axios.get('http://18.141.159.166:4000/parts')
                 .then((res) => {
                 dispatch(setParts(res.data))
                 })
             .catch(error => console.log('Got an error getting parts: ' + error))
             } else if (truckid !== '') {
-                await axios.get('http://35.169.107.36:4000/category/' +truckid)
+                await axios.get('http://18.141.159.166:4000/category/' +truckid)
                 .then(res => {
                 dispatch(setCategories(res.data))
                 })
-                await axios.get('http://35.169.107.36:4000/parts/part/' + truckid)
+                await axios.get('http://18.141.159.166:4000/parts/part/' + truckid)
                 .then((res) => {
                 dispatch(setParts(res.data))
                 })
@@ -48,13 +48,13 @@ export default function CategoryComponent() {
         e.preventDefault();
         // IF I AM VIEWING A TRUCK, GET CATEGORIES AND PARTS THAT INCLUDE THAT TRUCKS
             if(truckid !== ''){
-                await axios.get('http://35.169.107.36:4000/parts/' + category +'/' +truckId)
+                await axios.get('http://18.141.159.166:4000/parts/' + category +'/' +truckId)
                 .then((res) => {
                     dispatch(setParts(res.data));
                 })
             } else {
                 // IF I AM VIEWING ALL PARTS, LOAD THE CHOSEN CATEGORY AND PART
-                await axios.get('http://35.169.107.36:4000/parts/' + category)
+                await axios.get('http://18.141.159.166:4000/parts/' + category)
                 .then((res) => {
                     dispatch(setParts(res.data));
                 })
@@ -63,12 +63,12 @@ export default function CategoryComponent() {
 
     const viewAll = async() => {
         if(truckid !== ''){
-            await axios.get('http://35.169.107.36:4000/parts/part/' + truckid)
+            await axios.get('http://18.141.159.166:4000/parts/part/' + truckid)
                     .then((res) => {
                         dispatch(setParts(res.data))
                     })
         } else {
-            await axios.get('http://35.169.107.36:4000/parts')
+            await axios.get('http://18.141.159.166:4000/parts')
                 .then((res) => {
                 dispatch(setParts(res.data))
                 })

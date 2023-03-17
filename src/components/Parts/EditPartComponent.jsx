@@ -40,18 +40,18 @@ export default function EditPartComponent() {
 
     const handleDelete = async(e) => {
       e.preventDefault();
-        await axios.delete('http://35.169.107.36:4000/parts/delete/' + myPart._id)
+        await axios.delete('http://18.141.159.166:4000/parts/delete/' + myPart._id)
             .then(async(res) => {
               dispatch(loadEditPart({truckid:myTruck._id, partid:myPart._id}));
               dispatch(removeParts(myPart))
 
               if(truckid !== ''){
-                await axios.get('http://35.169.107.36:4000/category/' +truckid)
+                await axios.get('http://18.141.159.166:4000/category/' +truckid)
                     .then(res => {
                     dispatch(setCategories(res.data))
                     })
               } else {
-                await axios.get('http://35.169.107.36:4000/category')
+                await axios.get('http://18.141.159.166:4000/category')
                     .then((res) => {
                     dispatch(setCategories(res.data))
                     })
@@ -62,17 +62,17 @@ export default function EditPartComponent() {
 
       const onSubmit = async(e) => {
         e.preventDefault();
-        await axios.put('http://35.169.107.36:4000/parts/edit/' + myPart._id,myPart)
+        await axios.put('http://18.141.159.166:4000/parts/edit/' + myPart._id,myPart)
         .then(async(res) => {
 
           dispatch(editParts(myPart));
           if(truckid !== ''){
-            await axios.get('http://35.169.107.36:4000/category/' +truckid)
+            await axios.get('http://18.141.159.166:4000/category/' +truckid)
                 .then(res => {
                 dispatch(setCategories(res.data))
                 })
           } else {
-            await axios.get('http://35.169.107.36:4000/category')
+            await axios.get('http://18.141.159.166:4000/category')
                 .then((res) => {
                 dispatch(setCategories(res.data))
                 })
@@ -86,11 +86,11 @@ export default function EditPartComponent() {
     }
     const getPartById = async() => {
       if(partid !== '') {
-        await axios.get(`http://35.169.107.36:4000/parts/part/onePart/${partid}`)
+        await axios.get(`http://18.141.159.166:4000/parts/part/onePart/${partid}`)
         .then((res) => {
           setMyPart(res.data);
         })
-        await axios.get(`http://35.169.107.36:4000/trucks/${truckid}`)
+        await axios.get(`http://18.141.159.166:4000/trucks/${truckid}`)
         .then((res) => {
                 setMyTruck(res.data);
         })

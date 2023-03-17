@@ -16,12 +16,12 @@ export default function TruckCardComponent1({truck}) {
 
   const loadParts = async() => {
     dispatch(loadCategories(truck._id))
-      await axios.get('http://35.169.107.36:4000/parts/part/' + truck._id)
+      await axios.get('http://18.141.159.166:4000/parts/part/' + truck._id)
       .then((res) => {
           dispatch(setParts(res.data))
       })
 
-      await axios.get('http://35.169.107.36:4000/category/' +truck._id)
+      await axios.get('http://18.141.159.166:4000/category/' +truck._id)
       .then(res => {
         dispatch(setCategories(res.data))
       })

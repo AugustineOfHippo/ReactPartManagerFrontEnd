@@ -52,7 +52,7 @@ export default function AddPartComponent() {
 
     useEffect(() => {
     const fetchTruck = async() => {
-        await axios.get(`http://35.169.107.36:4000/trucks/${truckid}`)
+        await axios.get(`http://18.141.159.166:4000/trucks/${truckid}`)
             .then((res) => {
                 setTruck(res.data)
         })
@@ -65,7 +65,7 @@ export default function AddPartComponent() {
 
     const onSubmit = async(e) => {
         e.preventDefault();
-        await axios.post('http://35.169.107.36:4000/trucks/'+truckid,newPart)
+        await axios.post('http://18.141.159.166:4000/trucks/'+truckid,newPart)
         .then((res) => {
                 dispatch(addParts(res.data));
                 setSuccess(true);
@@ -73,7 +73,7 @@ export default function AddPartComponent() {
                     setSuccess(false)
                 },2000)
         })
-        await axios.get('http://35.169.107.36:4000/category/' +truckid)
+        await axios.get('http://18.141.159.166:4000/category/' +truckid)
         .then(res => {
         dispatch(setCategories(res.data))
         })
