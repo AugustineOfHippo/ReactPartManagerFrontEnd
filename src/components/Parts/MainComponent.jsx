@@ -25,25 +25,25 @@ export default function MainComponent() {
   
   useEffect(() => {
     const fetchAllTrucks = async() => {
-      await axios.get('http://18.141.159.166:4000/parts')
+      await axios.get('http://18.139.225.131:4000/parts')
         .then((res) => {
           dispatch(setParts(res.data))
         })
       .catch(error => console.log('Got an error getting parts: ' + error))
 
-        await axios.get('http://18.141.159.166:4000/category')
+        await axios.get('http://18.139.225.131:4000/category')
         .then((res) => {
         dispatch(setCategories(res.data))
         })
       .catch(error => console.log('Got an error getting categories: ' + error))
 
-          await axios.get('http://18.141.159.166:4000/makes')
+          await axios.get('http://18.139.225.131:4000/makes')
             .then((res) => {
                 dispatch(setMakes(res.data))
             })
       .catch(error => console.log('Got an error getting makes: ' + error))
 
-        await axios.get('http://18.141.159.166:4000/trucks')
+        await axios.get('http://18.139.225.131:4000/trucks')
         .then((res) => {
           ('Main Component Sent Request')
             dispatch(setTrucks(res.data))
